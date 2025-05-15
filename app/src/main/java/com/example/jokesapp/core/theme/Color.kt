@@ -1,4 +1,4 @@
-package com.example.jokesapp.ui.theme
+package com.example.jokesapp.core.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -6,7 +6,8 @@ import com.example.jokesapp.domain.repos.JokesSourceIdentifier
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 
-class JokesRepositoryImpl(override val identifier: JokesSourceIdentifier) : JokesRepository {
+class AlgerianJokesRepositoryImpl(override val identifier: JokesSourceIdentifier) :
+    JokesRepository {
     override fun getJokes(): Flow<List<Joke>> {
         return flowOf(
             listOf(

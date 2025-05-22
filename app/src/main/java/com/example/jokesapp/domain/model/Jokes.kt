@@ -1,6 +1,6 @@
 package com.example.jokesapp.domain.model
 
-data class Joke (
+data class Jokes (
     val id: Int,
     val title: String,
     val content: String,

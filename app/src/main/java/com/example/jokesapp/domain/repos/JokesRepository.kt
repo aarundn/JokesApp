@@ -1,9 +1,7 @@
 package com.example.jokesapp.domain.repos
 
-import com.example.jokesapp.domain.model.Joke
-import kotlinx.coroutines.flow.Flow
+import com.example.jokesapp.domain.model.Jokes
 
 interface JokesRepository {
-    val identifier: JokesSourceIdentifier
-    fun getJokes(): Flow<List<Joke>>
+    fun getJokes(): List<Jokes>
 }

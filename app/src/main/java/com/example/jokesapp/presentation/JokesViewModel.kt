@@ -1,39 +1,32 @@
 package com.example.jokesapp.presentation
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import com.example.jokesapp.domain.model.Jokes
 import com.example.jokesapp.domain.usecase.GetJokesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class JokesViewModel @Inject constructor(
     private val getJokesUseCase: GetJokesUseCase
-) : ViewModel() {
+): ViewModel() {
 
-    private val _joke = MutableStateFlow<JokesState>(JokesState.Loading)
-    val joke: StateFlow<JokesState> = _joke.asStateFlow()
+
+    private var _jokes by mutableStateOf(emptyList<Jokes>())
+
+    val jokes: List<Jokes>
+        get() = _jokes
 
 
     init {
         getJokes()
     }
 
-    private fun getJokes() {
-        viewModelScope.launch {
-            delay(1000)
-            try {
-                getJokesUseCase().collect {
-                    _joke.value = JokesState.Success(it)
-                }
-            } catch (e: Exception) {
-                _joke.value = JokesState.Error(e.localizedMessage ?: "")
-            }
-        }
+    private fun getJokes(){
+        _jokes = getJokesUseCase.execute()
     }
+
 }

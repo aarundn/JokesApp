@@ -2,6 +2,7 @@ package com.example.jokesapp.di
 
 import com.example.jokesapp.data.JokesRepositoryImpl
 import com.example.jokesapp.domain.repos.JokesRepository
+import com.example.jokesapp.domain.repos.JokesSourceIdentifier
 import com.example.jokesapp.domain.usecase.GetJokesUseCase
 import dagger.Module
 import dagger.Provides
@@ -17,7 +18,7 @@ object AppModule {
     @Provides
     @Singleton
     fun provideJokesRepository(): JokesRepository {
-        return JokesRepositoryImpl()
+        return JokesRepositoryImpl(JokesSourceIdentifier(id = "id", "Default"))
     }
 
     @Provides

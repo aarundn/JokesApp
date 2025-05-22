@@ -17,6 +17,11 @@ class AlgerianJokesRepositoryImpl(override val identifier: JokesSourceIdentifier
                     content = "Wahed rahi tahder m3a chauffeur taxi: 'Chofna chkara, matansa na7sba m3ana.'... repli chauffeur: 'Matkhafich, 3andi 3lah tsirwiya.' 😂"
                 ),
                 Joke(
+                    id = 1,
+                    title = "Chkara fi Taxi",
+                    content = "Wahed rahi tahder m3a chauffeur taxi: 'Chofna chkara, matansa na7sba m3ana.'... repli chauffeur: 'Matkhafich, 3andi 3lah tsirwiya.' 😂"
+                ),
+                Joke(
                     id = 2,
                     title = "Yatla3 Yanhbet",
                     content = "Wahed labessah mezyan, galuh 'Wach edayer?' Galhum: 'Yatla3 yanhbet.' 😂"

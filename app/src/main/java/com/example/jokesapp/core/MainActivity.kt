@@ -8,8 +8,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
+import androidx.navigation.compose.rememberNavController
+import com.example.jokesapp.core.navigation.Destinations.JokesList
+import com.example.jokesapp.core.navigation.MainNavHost
 import com.example.jokesapp.core.theme.JokesAppTheme
-import com.example.jokesapp.presentation.JokesScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,9 +21,17 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             JokesAppTheme {
-                Scaffold(modifier = Modifier.Companion.fillMaxSize()) { innerPadding ->
-                    JokesScreen(modifier = Modifier.fillMaxSize().padding(innerPadding))
+                val jokesNavController = rememberNavController()
+                Scaffold { paddingValues ->
+                    MainNavHost(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(paddingValues),
+                        startDestination = JokesList,
+                        navController = jokesNavController
+                    )
                 }
+
             }
         }
     }

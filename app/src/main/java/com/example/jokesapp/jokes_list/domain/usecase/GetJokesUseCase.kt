@@ -1,6 +1,6 @@
-package com.example.jokesapp.domain.usecase
+package com.example.jokesapp.jokes_list.domain.usecase
 
-import com.example.jokesapp.domain.repos.JokesRepository
+import com.example.jokesapp.jokes_list.domain.repos.JokesRepository
 import javax.inject.Inject
 
 class GetJokesUseCase @Inject constructor(

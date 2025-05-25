@@ -1,7 +1,7 @@
-package com.example.jokesapp.domain.usecase
+package com.example.jokesapp.jokes_list.domain.usecase
 
-import com.example.jokesapp.data.JokesSourceFactory
-import com.example.jokesapp.domain.model.Joke
+import com.example.jokesapp.jokes_list.data.JokesSourceFactory
+import com.example.jokesapp.jokes_list.domain.model.Joke
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

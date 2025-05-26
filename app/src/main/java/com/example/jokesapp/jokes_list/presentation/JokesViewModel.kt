@@ -1,8 +1,8 @@
-package com.example.jokesapp.presentation
+package com.example.jokesapp.jokes_list.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.jokesapp.domain.usecase.GetJokesUseCase
+import com.example.jokesapp.jokes_list.domain.usecase.GetJokesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow

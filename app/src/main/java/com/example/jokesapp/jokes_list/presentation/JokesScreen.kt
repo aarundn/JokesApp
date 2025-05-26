@@ -1,4 +1,4 @@
-package com.example.jokesapp.presentation
+package com.example.jokesapp.jokes_list.presentation
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -13,46 +13,57 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.jokesapp.domain.model.Joke
+import com.example.jokesapp.jokes_list.domain.model.Joke
 
 @Composable
 fun JokesScreen(
     modifier: Modifier = Modifier,
-    viewModel: JokesViewModelV2 = hiltViewModel()
+    state: JokesStateV1,
+    onAction: (JokesScreenAction) -> Unit,
 ) {
-    val jokesState by viewModel.joke.collectAsState()
 
     Column(
         modifier = modifier
             .fillMaxSize()
             .padding(16.dp)
-            .clickable { viewModel.onAction(JokesScreenAction.OnScreenClick) },
+            .clickable { onAction(JokesScreenAction.OnScreenClick) },
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        when (jokesState) {
-            is JokesState.Success -> JokesContent((jokesState as JokesState.Success).jokes)
-            is JokesState.Loading -> CircularProgressIndicator()
-            is JokesState.Error -> Text(text = (jokesState as JokesState.Error).message)
+
+        when {
+            state.isLoading -> CircularProgressIndicator()
+            state.errorMessage != null -> onAction(JokesScreenAction.ShowSnackBar(state.errorMessage))
+            else -> JokesContent(
+                state.jokes,
+                onAction = onAction
+            )
         }
     }
 }
 
 @Composable
-fun JokesContent(jokes: List<Joke>) {
+fun JokesContent(
+    jokes: List<Joke>,
+    onAction: (JokesScreenAction) -> Unit
+) {
     LazyColumn {
-        items(jokes.size) {
+        items(jokes.size, key = { it }) {
             Text(
                 text = jokes[it].content,
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onBackground,
+                modifier = Modifier.clickable(onClick = {
+                    onAction(
+                        JokesScreenAction.OnJokeClicked(
+                            jokes[it].id.toString()
+                        )
+                    )
+                })
             )
             Spacer(modifier = Modifier.height(4.dp))
             HorizontalDivider()

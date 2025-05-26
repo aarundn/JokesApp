@@ -1,8 +1,8 @@
-package com.example.jokesapp.data
+package com.example.jokesapp.jokes_list.data
 
-import com.example.jokesapp.domain.model.Joke
-import com.example.jokesapp.domain.repos.JokesRepository
-import com.example.jokesapp.domain.repos.JokesSourceIdentifier
+import com.example.jokesapp.jokes_list.domain.model.Joke
+import com.example.jokesapp.jokes_list.domain.repos.JokesRepository
+import com.example.jokesapp.jokes_list.domain.repos.JokesSourceIdentifier
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 

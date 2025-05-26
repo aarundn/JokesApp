@@ -1,9 +1,9 @@
-package com.example.jokesapp.di
+package com.example.jokesapp.jokes_list.di
 
-import com.example.jokesapp.data.JokesRepositoryImpl
-import com.example.jokesapp.domain.repos.JokesRepository
-import com.example.jokesapp.domain.repos.JokesSourceIdentifier
-import com.example.jokesapp.domain.usecase.GetJokesUseCase
+import com.example.jokesapp.jokes_list.data.JokesRepositoryImpl
+import com.example.jokesapp.jokes_list.domain.repos.JokesRepository
+import com.example.jokesapp.jokes_list.domain.repos.JokesSourceIdentifier
+import com.example.jokesapp.jokes_list.domain.usecase.GetJokesUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

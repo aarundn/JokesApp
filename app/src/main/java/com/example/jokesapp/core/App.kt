@@ -1,12 +1,12 @@
 package com.example.jokesapp.core
 
 import android.app.Application
-import com.example.jokesapp.data.AlgerianJokesRepositoryImpl
-import com.example.jokesapp.data.AlgerianJokesSourceID
-import com.example.jokesapp.data.EgyptianJokesRepositoryImpl
-import com.example.jokesapp.data.EgyptianJokesSourceID
-import com.example.jokesapp.data.JokesSourceFactory
-import com.example.jokesapp.domain.repos.JokesSourceIdentifier
+import com.example.jokesapp.jokes_list.data.AlgerianJokesRepositoryImpl
+import com.example.jokesapp.jokes_list.data.AlgerianJokesSourceID
+import com.example.jokesapp.jokes_list.data.EgyptianJokesRepositoryImpl
+import com.example.jokesapp.jokes_list.data.EgyptianJokesSourceID
+import com.example.jokesapp.jokes_list.data.JokesSourceFactory
+import com.example.jokesapp.jokes_list.domain.repos.JokesSourceIdentifier
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp

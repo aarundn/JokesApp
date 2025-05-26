@@ -1,6 +1,6 @@
-package com.example.jokesapp.presentation
+package com.example.jokesapp.jokes_list.presentation
 
-import com.example.jokesapp.domain.model.Joke
+import com.example.jokesapp.jokes_list.domain.model.Joke
 
 sealed class JokesState {
     data object Loading : JokesState()

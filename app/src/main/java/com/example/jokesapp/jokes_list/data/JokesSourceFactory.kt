@@ -1,7 +1,7 @@
-package com.example.jokesapp.data
+package com.example.jokesapp.jokes_list.data
 
 import android.util.Log
-import com.example.jokesapp.domain.repos.JokesRepository
+import com.example.jokesapp.jokes_list.domain.repos.JokesRepository
 
 private const val TAG = "JokesSourceFactory"
 const val EgyptianJokesSourceID = "EgyptianJokesID"
